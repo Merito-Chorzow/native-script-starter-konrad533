@@ -17,7 +17,7 @@ export class InventoryService {
     constructor(private http: HttpClient) {}
 
     getItems(): Observable<Item[]> {
-        return of(this.items).pipe(delay(500));
+        return of(this.items);
     }
 
     getItemById(id: string): Item | undefined {
@@ -31,4 +31,12 @@ export class InventoryService {
     deleteItem(id: string): void {
         this.items = this.items.filter(i => i.id !== id);
     }
+
+    updateItem(updatedItem: Item): void {
+        const index = this.items.findIndex(i => i.id === updatedItem.id);
+        if (index > -1) {
+            this.items[index] = updatedItem;
+        }
+    }
+
 }
