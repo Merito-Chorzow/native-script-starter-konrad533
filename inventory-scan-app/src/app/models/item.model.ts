@@ -3,6 +3,6 @@ export interface Item {
   name: string;
   code: string;
   status: string;
-  photo?: string;
+  photo?: any;
   description: string;
 }
