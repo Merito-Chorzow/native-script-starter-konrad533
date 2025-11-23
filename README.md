@@ -21,8 +21,10 @@ Zbuduj podstawową aplikację w **NativeScript używając framework Angular**, k
 - Pokaż komunikację z **API** (pobranie/zapis) i zachowanie przy błędach/uprawnieniach.
 
 ## Definition of Done (DoD)
-- [ ] 3–4 widoki + nawigacja.
-- [ ] Co najmniej 1 **natywna funkcja**.
-- [ ] Integracja z **API** (GET/POST).
-- [ ] Walidacja formularza + podstawowa obsługa błędów.
-- [ ] Aktualizacja `README.md`, zrzuty ekranów, min. 3 commity.
+- [x] 3–4 widoki + nawigacja.
+- [x] Co najmniej 1 **natywna funkcja**.
+- [x] Integracja z **API** (GET/POST).
+- [x] Walidacja formularza + podstawowa obsługa błędów.
+- [x] Aktualizacja `README.md`, zrzuty ekranów, min. 3 commity.
+
+#### README.md z opisem projektu znajduje się wewnątrz **inventory-scan-app**
