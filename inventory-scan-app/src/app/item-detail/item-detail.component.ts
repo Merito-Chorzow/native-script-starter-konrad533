@@ -18,31 +18,31 @@ import { Item } from '../models/item.model';
                 <Image *ngIf="item.photo" [src]="item.photo" class="m-b-20 bg-gray-100 rounded"></Image>
 
                 <GridLayout columns="*, *" class="m-b-20">
-                    <Label col="0" class="h3">
+                    <Label col="0" class="h2">
                         <FormattedString>
-                            <Span text="Kod: " class="font-bold text-muted text-small m-t-10"></Span>
-                            <Span [text]="item.code" class="text-muted text-small m-t-10"></Span>
+                            <Span text="Kod: " class="font-bold text-muted text-medium m-t-10"></Span>
+                            <Span [text]="item.code" class="text-muted text-medium m-t-10"></Span>
                         </FormattedString>
                     </Label>
 
-                    <Label col="1" class="h3" textAligment="right">
+                    <Label col="1" class="h2" textAligment="right">
                         <FormattedString>
-                            <Span text="Status: " class="font-bold text-muted text-small m-t-10"></Span>
-                            <Span [text]="item.status" [color]="item.status === 'Dostępny' ? 'green' : 'red'"></Span>
+                            <Span text="Status: " class="font-bold text-muted text-medium m-t-10"></Span>
+                            <Span [text]="item.status" class="text-medium" [color]="item.status === 'Dostępny' ? 'green' : 'red'"></Span>
                         </FormattedString>
                     </Label>
                 </GridLayout>
 
                 <Label class="body m-b-20" textWrap="true">
                     <FormattedString>
-                        <Span text="Opis:" class="font-bold text-muted text-small m-t-10"></Span>
-                        <Span [text]="item.description || 'Brak opisu'"></Span>
+                        <Span text="Opis: " class="font-bold text-muted text-medium m-t-10"></Span>
+                        <Span [text]="item.description || 'Brak opisu'" class="text-medium"></Span>
                     </FormattedString>
                 </Label>
                 
 
                 <GridLayout columns="*, *" gap="10" class="m-t-20">
-                    <Button text="Usuń" col="0" (tap)="deleteItem()" class="btn btn-danger text-danger"></Button>
+                    <Button text="Usuń" col="0" (tap)="deleteItem()" class="btn btn-danger"></Button>
                     <Button text="Edytuj" col="1" (tap)="router.navigate(['/edit-item', item.id])" class="btn btn-primary text-primary"></Button>
                 </GridLayout>
 
