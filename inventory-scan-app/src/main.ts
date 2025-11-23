@@ -3,11 +3,17 @@ import {
   provideNativeScriptHttpClient,
   provideNativeScriptRouter,
   runNativeScriptAngularApp,
+  NativeScriptCommonModule,
+  NativeScriptFormsModule,
+  NativeScriptHttpClientModule,
+  platformNativeScript,
+  NativeScriptRouterModule,
 } from '@nativescript/angular';
-import { provideZonelessChangeDetection } from '@angular/core';
-import { withInterceptorsFromDi } from '@angular/common/http';
+import { importProvidersFrom, provideZonelessChangeDetection } from '@angular/core';
+import { withInterceptorsFromDi, provideHttpClient } from '@angular/common/http';
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
+import '@angular/compiler';
 
 runNativeScriptAngularApp({
   appModuleBootstrap: () => {
@@ -16,7 +22,9 @@ runNativeScriptAngularApp({
         provideNativeScriptHttpClient(withInterceptorsFromDi()),
         provideNativeScriptRouter(routes),
         provideZonelessChangeDetection(),
-      ],
+        importProvidersFrom(NativeScriptCommonModule, NativeScriptFormsModule),
+        provideHttpClient(),  
+      ]
     });
-  },
+  }
 });
