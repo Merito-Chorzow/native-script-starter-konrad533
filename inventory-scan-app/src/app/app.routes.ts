@@ -8,4 +8,5 @@ export const routes: Routes = [
   { path: 'items', component: ItemsComponent },
   { path: 'item/:id', component: ItemDetailComponent },
   { path: 'add-item', component: ItemAddComponent },
+  { path: 'edit-item/:id', component: ItemAddComponent },
 ];
