@@ -11,9 +11,9 @@ import { Item } from '../models/item.model';
     schemas: [NO_ERRORS_SCHEMA],
     template: `
         <ActionBar title="Lista Przedmiotów"></ActionBar>
-        <StackLayout>
-            <Button text="Dodaj produkt" [nsRouterLink]="['/add-item']" class="btn-primary"></Button>
-            <ListView [items]="items" class="list-group">
+        <GridLayout rows="auto, *" (loaded)="refresh()">
+            <Button text="Dodaj produkt" [nsRouterLink]="['/add-item']" class="btn-primary" row="0"></Button>
+            <ListView [items]="items" class="list-group" row="1">
                 <ng-template let-item="item">
                     <StackLayout [nsRouterLink]="['/item', item.id]" class="p-10">
                         <Label [text]="item.name" class="h2"></Label>
@@ -21,7 +21,7 @@ import { Item } from '../models/item.model';
                     </StackLayout>
                 </ng-template>
             </ListView>
-        </StackLayout>
+        </GridLayout>
     `
 })
 
@@ -31,8 +31,16 @@ export class ItemsComponent implements OnInit {
     constructor(private inventoryService: InventoryService) {}
 
     ngOnInit(): void {
+        this.fetchData();
+    }
+
+    refresh() {
+        this.fetchData();
+    }
+
+    fetchData() {
         this.inventoryService.getItems().subscribe((data) => {
-            this.items = data;
+            this.items = [...data];
         });
     }
 }
